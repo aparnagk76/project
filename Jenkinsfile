@@ -1,14 +1,9 @@
 pipeline {
   agent { label 'mynode' }
   stages {
-    stage('Checkout code') {
-        steps {
-            checkout scm
-        }
-    }
     stage('Compile') {
       steps {
-        sh './gradlew clean build'
+        sh './gradlew clean compileJava'
       }
     }
     stage('Test') {
